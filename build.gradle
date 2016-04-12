@@ -1,19 +1,33 @@
-
-apply plugin: 'java'	
-	
-sourceCompatibility = 1.8	
+apply plugin: 'java'
 
 ext {
-	spring_version = "4.5.2.RELEASE"
+	spring_version = "4.2.5.RELEASE"
 	slf4j_version = "1.7.7"
 	logback_version = "1.1.2"
+	hibernate_version = "3.6.10.Final"
 }
 
 dependencies {
 
+	compile "org.hibernate:hibernate-core:$hibernate_version"
+	compile "org.hibernate:hibernate-entitymanager:$hibernate_version"
+	compile "org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final"
+
+	compile "org.springframework:spring-core:$spring_version"
+	compile "org.springframework:spring-context:$spring_version"
+	compile "org.springframework:spring-tx:$spring_version"
+	compile "org.springframework:spring-orm:$spring_version"
+
+	compile "javax.inject:javax.inject:1"
+
+	testCompile 'org.hsqldb:hsqldb:2.0.0'
+	testCompile "org.springframework:spring-test:$spring_version"
+	testCompile "junit:junit:4.10"
+
 	compile "org.slf4j:slf4j-api:$slf4j_version"
 	compile "org.slf4j:jcl-over-slf4j:$slf4j_version"
 	compile "org.slf4j:log4j-over-slf4j:$slf4j_version"
+
 	compile "ch.qos.logback:logback-core:$logback_version"
 	compile "ch.qos.logback:logback-classic:$logback_version"
 }	
