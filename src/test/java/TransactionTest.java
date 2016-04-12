@@ -34,8 +34,6 @@ public class TransactionTest {
 
     @Test
     public void testPropagationDefault() throws Exception{
-        transTimeBean.getTime();
-
         LocalDateTime date1 = service.getTransactionTime();
         Thread.sleep(10);
         LocalDateTime date2 = service.getTransactionTime();
